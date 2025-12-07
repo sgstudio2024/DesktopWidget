@@ -10,39 +10,36 @@
         ShowInTaskbar="False"
         ResizeMode="NoResize">
     <Grid>
-        <Border Background="#AA222222" CornerRadius="16" Padding="20" BorderThickness="1" BorderBrush="#55FFFFFF">
+        <Border x:Name="BackgroundBorder"
+                Background="#AA222222" 
+                CornerRadius="16" 
+                Padding="20" 
+                BorderThickness="1" 
+                BorderBrush="#55FFFFFF">
             <Grid>
-                <!-- 右上角固定按钮 -->
-                <Button x:Name="PinButton"
-                        Width="24" Height="24"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="0,0,0,0"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Click="PinButton_Click"
-                        ToolTip="固定/取消固定">
-                    <TextBlock x:Name="PinIcon" FontSize="16" Text="📌"/>
-                </Button>
-                <StackPanel>
-                    <TextBlock x:Name="CountdownText"
-                               FontSize="14"
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,0"/>
-                    <!-- 这里可以添加你的挂件内容 -->
-                </StackPanel>
-                <!-- 左下头像 -->
+                <!-- 内容区域（不透明） -->
+                <Grid x:Name="ContentGrid" Opacity="1">
+                    <StackPanel>
+                        <TextBlock x:Name="CountdownText"
+                                   FontSize="14"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,0"/>
+                        <!-- 这里可以添加你的挂件内容 -->
+                    </StackPanel>
+                    <!-- 左下头像 -->
                 <StackPanel Orientation="Vertical"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
                             Margin="0,0,0,0">
-                    <TextBlock Text="(请修改源代码)"
+                    <TextBlock x:Name="LeftAvatarNameText"
+                               Text="XX"
                                FontSize="12"
                                Foreground="White"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,2"/>
-                    <Image Source="https://lxstu.sgstudio2025.xyz/1.png"
+                    <Image x:Name="LeftAvatarImage"
+                           Source="https://lxstu.sgstudio2025.xyz/1.png"
                            Width="40"
                            Height="40"
                            Stretch="Uniform"
@@ -53,25 +50,29 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             Margin="0,0,0,0">
-                    <TextBlock Text="(请修改源代码)"
+                    <TextBlock x:Name="RightAvatarNameText"
+                               Text="XX"
                                FontSize="12"
                                Foreground="White"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,2"/>
-                    <Image Source="https://lxstu.sgstudio2025.xyz/2.png"
+                    <Image x:Name="RightAvatarImage"
+                           Source="https://lxstu.sgstudio2025.xyz/2.png"
                            Width="40"
                            Height="40"
                            Stretch="Uniform"
                            HorizontalAlignment="Right"/>
                 </StackPanel>
-                <!-- 中间爱心图片 -->
-                <Image Source="https://lxstu.sgstudio2025.xyz/3.png"
+                    <!-- 中间爱心图片 -->
+                <Image x:Name="CenterHeartImage"
+                       Source="https://lxstu.sgstudio2025.xyz/3.png"
                        Width="48"
                        Height="48"
                        Stretch="Uniform"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"
                        Margin="0,0,0,8"/>
+                </Grid>
             </Grid>
         </Border>
     </Grid>
